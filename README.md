@@ -11,13 +11,13 @@
 dtoverlay=tpm-slb9670
 ```
 
-4. Install build-time dependencies with `sudo apt-get install autotools-dev autoconf libtool libssl-dev libjson-c-dev libcurl4-openssl-dev
+4. Install build-time dependencies with `sudo apt-get install autotools-dev autoconf libtool libssl-dev libjson-c-dev libcurl4-openssl-dev uuid-dev libglib2.0-dev
 `
 
-5. Install the latest releases of [tpm2-tss](https://github.com/tpm2-software/tpm2-tss), [tpm2-tools](https://github.com/tpm2-software/tpm2-tools), [tpm2-tss-engine](https://github.com/tpm2-software/tpm2-tss-engine), and [tpm2-abrmd](https://github.com/tpm2-software/tpm2-abrmd) using `./configure; make; sudo make install`. Notice that each of these packages has their own dependencies. Copy the DBUS authorization file below:
+5. Install the latest releases of [tpm2-tss](https://github.com/tpm2-software/tpm2-tss), [tpm2-tools](https://github.com/tpm2-software/tpm2-tools), [tpm2-tss-engine](https://github.com/tpm2-software/tpm2-tss-engine), and [tpm2-abrmd](https://github.com/tpm2-software/tpm2-abrmd) in this order using `./configure; make; sudo make install`. Notice that each of these packages has their own dependencies, listed in the corresponding pages. Copy the DBUS authorization file below:
 
 ```
-cp tpm2-abrmd/conf/tpm2-abrmd.conf etc/dbus-1/system.d
+sudo cp dist/tpm2-abrmd.conf etc/dbus-1/system.d
 ```
 
 6. Change the permissions for the device nodes to not require root by creating file `/etc/udev/rules.d/tpm-udev.rules` with contents:
@@ -26,7 +26,7 @@ cp tpm2-abrmd/conf/tpm2-abrmd.conf etc/dbus-1/system.d
 KERNEL=="tpm[0-9]*", TAG+="systemd", MODE="0660", OWNER="tss"
 KERNEL=="tpmrm[0-9]*", TAG+="systemd", MODE="0660", OWNER="tss", GROUP="tss"
 ```
-7. The resource management daemon can now be executed with ``sudo sytemctl start tpm2-abrmd.service`
+7. The resource management daemon can now be executed with `sudo systemctl enable tpm2-abrmd.service`. Reboot for the latter changes to have effect.
 
 ## WolfSSL
 
