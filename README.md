@@ -13,7 +13,7 @@ dtoverlay=tpm-slb9670
 
 4. Install build-time dependencies with `sudo apt-get install autotools-dev autoconf libtool`
 
-5. Install the latest releases of `tpm2-tools`, `tpm2-tss` and `tpm2-abrmd` using `./configure; make; sudo make install`. Copy the DBUS authorization file below:
+5. Install the latest releases of `tpm2-tools`, `tpm2-tss`, `tpm2-tss-engine` and `tpm2-abrmd` using `./configure; make; sudo make install`. Copy the DBUS authorization file below:
 
 ```
 cp tpm2-abrmd/conf/tpm2-abrmd.conf etc/dbus-1/system.d
