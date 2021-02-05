@@ -13,9 +13,11 @@ dtoverlay=tpm-slb9670
 
 4. Install build-time dependencies with `sudo apt-get install autotools-dev autoconf libtool`
 
-5. Build `wolfssl` and `wolfTPM` with  `/dev/tpmX` support as described (here)[https://github.com/wolfssl/wolfTPM]. Use `configure --enable-devtpm` instead for `wolfTPM`.ifconfig
+5. Install the latest releases of `tpm2-tools` and `tpm2-tss` using `./configure; make; sudo make install`.
 
-6. Run a TLS server from `wolfTPM` with `sudo ./examples/tls/tls_server -ecc` and verify it works from a browser in another machine by pointing to the device with port 11111. Notice that you will get a warning about certificate validation that can be eliminated by accepting/installing the CA certificates in the browser.
+6. Build `wolfssl` and `wolfTPM` with  `/dev/tpmX` support as described (here)[https://github.com/wolfssl/wolfTPM]. Use `configure --enable-devtpm` instead for `wolfTPM`.ifconfig
+
+7. Run a TLS server from `wolfTPM` with `sudo ./examples/tls/tls_server -ecc` and verify it works from a browser in another machine by pointing to the device with port 11111. Notice that you will get a warning about certificate validation that can be eliminated by accepting/installing the CA certificates in the browser.
 
 The many examples in the `examples` folder should be sufficient for writing applications using TLS and keys stored in the TPM.
 
