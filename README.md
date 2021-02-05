@@ -32,7 +32,7 @@ KERNEL=="tpmrm[0-9]*", TAG+="systemd", MODE="0660", OWNER="tss", GROUP="tss"
 
 ## WolfSSL
 
-8. Build `wolfssl` and `wolfTPM` with  `/dev/tpmX` support as described [here](https://github.com/wolfssl/wolfTPM). Use `configure --enable-devtpm` instead for `wolfTPM`.ifconfig
+8. Build `wolfssl` and `wolfTPM` with  `/dev/tpmX` support as described [here](https://github.com/wolfssl/wolfTPM).
 
 9. Run a TLS server from `wolfTPM` with `sudo ./examples/tls/tls_server -ecc` and verify it works from a browser in another machine by pointing to the device with port 11111. Notice that you will get a warning about certificate validation that can be eliminated by accepting/installing the CA certificates in the browser.
 
