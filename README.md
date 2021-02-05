@@ -14,7 +14,7 @@ dtoverlay=tpm-slb9670
 4. Install build-time dependencies with `sudo apt-get install autotools-dev autoconf libtool libssl-dev libjson-c-dev libcurl4-openssl-dev
 `
 
-5. Install the latest releases of [tpm2-tss](https://github.com/tpm2-software/tpm2-tss), [tpm2-tools](https://github.com/tpm2-software/tpm2-tools), `[tpm2-tss-engine](https://github.com/tpm2-software/tpm2-tss-engine), and [tpm2-abrmd](https://github.com/tpm2-software/tpm2-abrmd) using `./configure; make; sudo make install`. Notice that each of these packages has their own dependencies. Copy the DBUS authorization file below:
+5. Install the latest releases of [tpm2-tss](https://github.com/tpm2-software/tpm2-tss), [tpm2-tools](https://github.com/tpm2-software/tpm2-tools), [tpm2-tss-engine](https://github.com/tpm2-software/tpm2-tss-engine), and [tpm2-abrmd](https://github.com/tpm2-software/tpm2-abrmd) using `./configure; make; sudo make install`. Notice that each of these packages has their own dependencies. Copy the DBUS authorization file below:
 
 ```
 cp tpm2-abrmd/conf/tpm2-abrmd.conf etc/dbus-1/system.d
