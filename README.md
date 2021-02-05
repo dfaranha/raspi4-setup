@@ -28,19 +28,26 @@ sudo usermod -a -G tss pi
 KERNEL=="tpm[0-9]*", TAG+="systemd", MODE="0660", OWNER="tss", GROUP="tss"
 KERNEL=="tpmrm[0-9]*", TAG+="systemd", MODE="0660", OWNER="tss", GROUP="tss"
 ```
-7. The resource management daemon can now be executed with `sudo systemctl enable tpm2-abrmd.service`. Reboot for the latter changes to have effect.
+Reboot for the latter changes to have effect.
 
 ## WolfSSL
 
-8. Build `wolfssl` and `wolfTPM` with  `/dev/tpmX` support as described [here](https://github.com/wolfssl/wolfTPM).
+7. Build `wolfssl` and `wolfTPM` with  `/dev/tpmX` support as described [here](https://github.com/wolfssl/wolfTPM).
 
-9. Run a TLS server from `wolfTPM` with `sudo ./examples/tls/tls_server -ecc` and verify it works from a browser in another machine by pointing to the device with port 11111. Notice that you will get a warning about certificate validation that can be eliminated by accepting/installing the CA certificates in the browser.
+8. Run a TLS server from `wolfTPM` with `sudo ./examples/tls/tls_server -ecc` and verify it works from a browser in another machine by pointing to the device with port 11111. Notice that you will get a warning about certificate validation that can be eliminated by accepting/installing the CA certificates in the browser.
 
 The many examples in the `examples` folder should be sufficient for writing applications using TLS and keys stored in the TPM.
 
 ## OpenSSL
 
-Follow [this tutorial](https://www.infineon.com/dgdl/Infineon-OPTIGA_TPM_SLx9670_TPM_2.0-ApplicationNotes-v01_00-EN.pdf?fileId=5546d46271bf4f920171c5598a3a0e7b).
+7. The resource management daemon can now be executed with:
+
+```
+sudo systemctl enable tpm2-abrmd.service
+sudo systemctl start tpm2-abrmd.service
+```
+
+8. Follow [this tutorial](https://www.infineon.com/dgdl/Infineon-OPTIGA_TPM_SLx9670_TPM_2.0-ApplicationNotes-v01_00-EN.pdf?fileId=5546d46271bf4f920171c5598a3a0e7b).
 
 ## Troubleshooting
 
