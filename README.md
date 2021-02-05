@@ -37,7 +37,7 @@ The many examples in the `examples` folder should be sufficient for writing appl
 
 ## OpenSSL
 
-Follow [this tutorial](tpm2https://www.infineon.com/dgdl/Infineon-OPTIGA_TPM_SLx9670_TPM_2.0-ApplicationNotes-v01_00-EN.pdf?fileId=5546d46271bf4f920171c5598a3a0e7b).
+Follow [this tutorial](https://www.infineon.com/dgdl/Infineon-OPTIGA_TPM_SLx9670_TPM_2.0-ApplicationNotes-v01_00-EN.pdf?fileId=5546d46271bf4f920171c5598a3a0e7b).
 
 ## Troubleshooting
 
